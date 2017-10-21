@@ -16,6 +16,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,6 +37,7 @@ import javax.persistence.Table;
 @Table(name = "tb_usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name ="Discriminator_user",discriminatorType= DiscriminatorType.STRING,length =1)
+@DiscriminatorValue(value = "U")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -139,7 +141,7 @@ protected Collection<String> telefones;
         }
 
         this.proj.add(proj);
-        proj.adicionar(this);
+        
     }
 
   

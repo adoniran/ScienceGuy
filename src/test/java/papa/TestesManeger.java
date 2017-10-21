@@ -19,14 +19,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 /**
  *
  * @author adoniran
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@SuppressWarnings("JPQLValidation")
 public class TestesManeger {
     private static EntityManagerFactory emf;
-    private static Logger logger = Logger.getGlobal();
+    private static final Logger logger = Logger.getGlobal();
     private EntityManager em;
     private EntityTransaction et;
     public TestesManeger() {
@@ -36,23 +40,32 @@ public class TestesManeger {
     public static void setUpClass() {
         logger.setLevel(Level.SEVERE);
         emf = Persistence.createEntityManagerFactory("SC_exercicioPU");
-;
+
     }
-    
+     
     @AfterClass
     public static void tearDownClass() {
         emf.close();
     }
-    
+
     @Before
     public void setUp() {
         em = emf.createEntityManager();
-         et = em.getTransaction();
-         et.begin();
+        beginTransaction();
     }
-    
+
     @After
     public void tearDown() {
+        commitTransaction();
+        em.close();
+    }
+
+    private void beginTransaction() {
+        et = em.getTransaction();
+        et.begin();
+    }
+
+    private void commitTransaction() {
         try {
             et.commit();
         } catch (Exception ex) {
@@ -60,9 +73,7 @@ public class TestesManeger {
             et.rollback();
             fail(ex.getMessage());
         }
-            em.close();
-        
-    }
+}
 
     @Test
     public void t01_inserir_userEconta(){
