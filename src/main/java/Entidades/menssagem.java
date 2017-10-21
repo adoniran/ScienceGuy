@@ -6,10 +6,17 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +24,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 /**
  *
  * @author adoniran
@@ -32,14 +39,14 @@ public abstract class menssagem implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @Column(name="mensagem")
     private String Mensagem;
     
-    @Column(name="remetente")
-    //duvida mesma de msg_usuario----
+    
     @OneToOne(optional=false,cascade=CascadeType.ALL)
     @JoinColumn(name="id_remetente",referencedColumnName = "ID")
     private Usuario remetente;
