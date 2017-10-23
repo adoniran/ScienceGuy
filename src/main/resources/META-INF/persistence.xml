@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-
   <persistence-unit name="SC_exercicioPU" transaction-type="RESOURCE_LOCAL">
-  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>Entidades.Conta</class>
     <class>Entidades.Projetos</class>
     <class>Entidades.Usuario</class>
     <class>Entidades.Admin</class>
     <class>Entidades.Log</class>
-    <class>Entidades.menssagem</class>
-    <class>Entidades.Msg_proj</class>
-    <class>Entidades.Msg_Usuario</class>
+    <class>Entidades.Mensagem</class>
+    <class>Entidades.MensagemUser</class>
+    <class>Entidades.MensagemProj</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties> 
+    <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ScienceGuy"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

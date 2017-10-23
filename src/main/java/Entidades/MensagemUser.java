@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Table(name="tb_Msg_User")
 @DiscriminatorValue(value = "U")
 @PrimaryKeyJoinColumn(name="MSG_ID", referencedColumnName = "ID")
-public class Msg_Usuario extends menssagem implements Serializable {
+public class MensagemUser extends Mensagem implements Serializable {
 //cascade duvida: existe usuario sem mensagem mas não existe mensagem sem usuario como representar?
 @OneToOne(optional=false,cascade=CascadeType.ALL)
 @JoinColumn(name="id_destinatario",referencedColumnName = "ID")
