@@ -7,4 +7,70 @@ and open the template in the editor.
 
 
 <dataset>
+
+    <!--usuario-->
+    
+    
+    <tb_usuario Discriminator_user="U" login="harry69" nome="Harry thiago Potter" email="harryPoter@gmail.com" 
+                senha="grifno" logadouro="Rua dos Alfineiros" numero="4" bairro="smallvile" complemento="casa" 
+                cidade="london" estado="AC/DC" CEP="53300-030"/>
+    
+    <tb_usuario Discriminator_user="U" login="Hermione" nome="Hermione granger" email="hermione@gmail.com" 
+                senha="alohomora" logadouro="Rua dos trouxas" numero="4" bairro="Camp half-blod" complemento="ap 204" 
+                cidade="london" estado="AC/DC" CEP="56600-030"/>
+    
+    <tb_usuario Discriminator_user="U" login="RonX66" nome="Ron Weasley" email="Wesaley.ron@gmail.com" 
+                senha="grifnoria" logadouro="AV john Ceeena" numero="4" bairro="smallvile" complemento="casa" 
+                cidade="london" estado="AC/DC" CEP="53300-030"/>
+    
+    <tb_usuario Discriminator_user="U" login="percy" nome="Percy Jackson" email="Percyr@gmail.com" 
+                senha="tsuname" logadouro="AV maui" numero="4" bairro="gothan" complemento="casa" 
+                cidade="athenas" estado="AC/DC" CEP="53620-030"/>
+    <!--administradores-->
+    <tb_usuario Discriminator_user="A" login="BlackCat" nome="Minerva Mcgonagall" email="mcgonagall@gmail.com" 
+                senha="blackcat71" logadouro="AV black bird" numero="71" bairro="blair" complemento="ap 106" 
+                cidade="macao" estado="AC/DC" CEP="53300-900"/>
+    
+    <tb_usuario Discriminator_user="A" login="QuironZ" nome="Quiron" email="demigod@gmail.com" 
+                senha="zeus" logadouro="Rua dos centauros" numero="4" bairro="Camp half-blod" complemento="casa" 
+                cidade="macao" estado="AC/DC" CEP="56600-030"/>
+    
+    
+    <tb_admins Usuario_ID="4" senha_confirmacao="202020"/>
+    <tb_admins Usuario_ID="5" senha_confirmacao="900025"/>
+    <!--    telefones-->
+    <tb_telefone id="1" numero_telefone="(81)3426-0011"/>
+    <tb_telefone id="6" numero_telefone="(81)3478-4561"/>
+    <tb_telefone id="6" numero_telefone="(81)3245-8771"/>
+    <tb_telefone id="2" numero_telefone="(81)98441-8427"/>
+    <tb_telefone id="2" numero_telefone="(34)97991-7227"/>
+    <tb_telefone id="3" numero_telefone="(34)98441-4527"/>
+    <tb_telefone id="3" numero_telefone="(34)98441-8427"/>
+    <tb_telefone id="4" numero_telefone="(11)3227-1548"/>
+    <tb_telefone id="4" numero_telefone="(11)3247-0011"/>
+    <tb_telefone id="5" numero_telefone="(11)3486-7411"/>
+    <tb_telefone id="5" numero_telefone="(11)98624-9883"/>
+    <!--conta-->
+    <tb_conta numero_conta="00054002185850" agencia_conta="4322"  tipo_conta="poupança" id_usuario="1"/>
+    <tb_conta numero_conta="00022165799658" agencia_conta="4311"  tipo_conta="poupança" id_usuario="2"/>
+    <tb_conta numero_conta="00000148994808" agencia_conta="5192"  tipo_conta="conta corrente" id_usuario="3"/>
+    <tb_conta numero_conta="00000148999658" agencia_conta="5282"  tipo_conta="conta corrente" id_usuario="4"/>
+    <tb_conta numero_conta="00000784599658" agencia_conta="4371"  tipo_conta="poupança" id_usuario="5"/>
+    <!--projetos-->
+    <tb_projetos  nome_project="Aparato magico n15" descricao_project="desenvolver nova tecnologia para
+    lançar feitiços mais rapidos ,dando um novo formato as varinhas" necessidade="INTELECTUAL" situacao="DESENVOLVENDO" area_projeto="HARDWARE"
+                  motivacao_necessidade="ideias com o nome de materiais metalicos condutores para a producao" />
+    
+    <tb_projetos  nome_project="Criptocoin  Dracoin" descricao_project="desenvolver nova tecnologia para
+    troca e transferencia de dracmas de ouro com velocidade e seguranca" necessidade="HUMANO" situacao="PARADO" area_projeto="TI"
+                  motivacao_necessidade="Precisamos de mais pessoas para auxiliar no desenvolvimento" />
+    
+    <tb_arquivos id_projeto="2" tipo="codigo" nome="codigo do projeto" URL="https://github.com/adoniran/ScienceGuy"/>
+    
+    <tb_usuarios_projetos id_projeto="1" id_usuario="1"/>
+    <tb_usuarios_projetos id_projeto="1" id_usuario="2"/>
+    <tb_usuarios_projetos id_projeto="1" id_usuario="3"/>
+    <tb_usuarios_projetos id_projeto="2" id_usuario="6"/>
+    <tb_usuarios_projetos id_projeto="2" id_usuario="4"/>
+    
 </dataset>

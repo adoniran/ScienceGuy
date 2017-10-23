@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,33 +25,42 @@ import javax.persistence.Table;
  * @author adoniran
  */
 @Entity
-@Table(name="tb_admins")
+@Table(name = "tb_admins")
 @DiscriminatorValue(value = "A")
-@PrimaryKeyJoinColumn(name="Usuario_ID", referencedColumnName = "ID")
-public class Admin extends Usuario implements Serializable  {
+@PrimaryKeyJoinColumn(name = "Usuario_ID", referencedColumnName = "ID")
+public class Admin extends Usuario implements Serializable {
 
-@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval=true)
-private List<Log> log;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Log> log;
 
-    
+    @Column(name = "senha_confirmacao")
+    private String confirmacao;
 
     public List<Log> getLogs() {
         return log;
     }
 
-    
-    public void addLog(Log log){
-        if(this.log == null){
+    public void addLog(Log log) {
+        if (this.log == null) {
             this.log = new ArrayList<>();
-        
+
         }
         this.log.add(log);
-    
+
     }
+
+    public String getConfirmacao() {
+        return confirmacao;
+    }
+
+    public void setConfirmacao(String confirmacao) {
+        this.confirmacao = confirmacao;
+    }
+    
 
     @Override
     public String toString() {
         return "Entidades.Admin[ id=" + getId() + " ]";
     }
-    
+
 }

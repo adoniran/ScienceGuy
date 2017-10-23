@@ -20,7 +20,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -48,8 +47,8 @@ public class Projetos implements Serializable {
                 @JoinColumn(name = "id_usuario")})
     private List<Usuario> participantes;
     
-    @Column(name="Motivacao_abandono")
-    private String MotivacaoAbandono;
+    @Column(name="motivacao_necessidade")
+    private String MotivacaoNecessidade;
     
     @Enumerated(EnumType.STRING)
     @Column(name="necessidade")
@@ -107,12 +106,12 @@ public class Projetos implements Serializable {
         
 }
 
-    public String getMotivacaoAbandono() {
-        return MotivacaoAbandono;
+    public String getMotivacaoNecessidade() {
+        return MotivacaoNecessidade;
     }
 
-    public void setMotivacaoAbandono(String MotivacaoAbandono) {
-        this.MotivacaoAbandono = MotivacaoAbandono;
+    public void setMotivacaoNecessidade(String MotivacaoNecessidade) {
+        this.MotivacaoNecessidade = MotivacaoNecessidade;
     }
 
     public Necessidade getNecessidade() {

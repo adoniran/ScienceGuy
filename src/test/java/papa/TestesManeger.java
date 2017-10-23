@@ -40,6 +40,7 @@ public class TestesManeger {
     public static void setUpClass() {
         logger.setLevel(Level.SEVERE);
         emf = Persistence.createEntityManagerFactory("SC_exercicioPU");
+         DbUnitUtil.inserirDados();
 
     }
      

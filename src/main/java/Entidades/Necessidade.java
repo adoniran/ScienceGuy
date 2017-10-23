@@ -10,5 +10,5 @@ package Entidades;
  * @author adoniran
  */
 public enum Necessidade {
-    FINANCEIRO,HUMANO,INTELECTUAL,GERENCIA;
+    FINANCEIRO,HUMANO,INTELECTUAL,NENHUMA;
 }
