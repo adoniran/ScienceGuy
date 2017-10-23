@@ -152,6 +152,4 @@ public class Projetos implements Serializable {
         arq.setProjeto(this);
     }
 
-  
-    
 }
