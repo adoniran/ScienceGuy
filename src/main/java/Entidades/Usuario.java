@@ -18,6 +18,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -61,13 +63,15 @@ public class Usuario implements Serializable {
     @CollectionTable(name = "tb_telefone",
             joinColumns = @JoinColumn(name = "id"))
     @Column(name = "numero_telefone")
-protected Collection<String> telefones;
+    protected Collection<String> telefones;
     
     @ManyToMany(mappedBy = "participantes",cascade=CascadeType.ALL)
     private List<Projetos> proj;
     
     @OneToOne(mappedBy = "donoConta",cascade=CascadeType.ALL,orphanRemoval = true)
     private Conta conta;
+    @Embedded
+    private Endereco endereco;
 
     public Conta getConta() {
         return conta;
@@ -144,9 +148,15 @@ protected Collection<String> telefones;
         
     }
 
-  
-    
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+ 
     @Override
     public int hashCode() {
         int hash = 0;

@@ -11,6 +11,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +21,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -36,7 +39,7 @@ public class Projetos implements Serializable {
     private Long id;
     @Column(name="nome_project")
     private String nome;
-    @Column(name="DESCRICAO_project")
+    @Column(name="descricao_project")
     private String descricao;    
     @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(name = "tb_usuarios_projetos", joinColumns = {
@@ -44,6 +47,25 @@ public class Projetos implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn(name = "id_usuario")})
     private List<Usuario> participantes;
+    
+    @Column(name="Motivacao_abandono")
+    private String MotivacaoAbandono;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name="necessidade")
+    private Necessidade necessidade;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name="situacao")
+    private Situacao situacao;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name="area_projeto")
+    private Area area;
+    
+    @OneToMany(mappedBy = "projeto", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Arquivos> arquivos;
     
     
 
@@ -70,7 +92,7 @@ public class Projetos implements Serializable {
         this.descricao = descricao;
     }
 
-    public void adicionar(Usuario usuario) {
+    public void addUsuario(Usuario usuario) {
         if (this.participantes == null) {
             this.participantes = new ArrayList<>();
         }
@@ -84,4 +106,52 @@ public class Projetos implements Serializable {
     
         
 }
+
+    public String getMotivacaoAbandono() {
+        return MotivacaoAbandono;
+    }
+
+    public void setMotivacaoAbandono(String MotivacaoAbandono) {
+        this.MotivacaoAbandono = MotivacaoAbandono;
+    }
+
+    public Necessidade getNecessidade() {
+        return necessidade;
+    }
+
+    public void setNecessidade(Necessidade necessidade) {
+        this.necessidade = necessidade;
+    }
+
+    public Situacao getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Situacao situacao) {
+        this.situacao = situacao;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public List<Arquivos> getArquivos() {
+        return arquivos;
+    }
+
+     public void addArquivo(Arquivos arq) {
+        if (this.arquivos == null) {
+            this.arquivos = new ArrayList<>();
+        }
+
+        arquivos.add(arq);
+        arq.setProjeto(this);
+    }
+
+  
+    
 }
