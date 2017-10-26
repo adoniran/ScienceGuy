@@ -28,6 +28,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,6 +39,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_usuario")
+@NamedQueries(
+{
+    @NamedQuery(name="Usuarios.todos", query="SELECT u FROM Usuario u "),
+    @NamedQuery(name="Usuarios.DDDTel", query="SELECT u FROM Usuario u WHERE u.telefones LIKE  :tel")
+})
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name ="Discriminator_user",discriminatorType= DiscriminatorType.STRING,length =1)
 @DiscriminatorValue(value = "U")

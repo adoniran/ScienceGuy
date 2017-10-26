@@ -158,7 +158,7 @@ public class TestesManeger {
     }
     @Test
     public void t04_Update_Usuarios_ao_projeto(){
-        long id=1;
+        long id=(long)1;
         Projetos projetos= em.find(Projetos.class, id);
         
         Usuario user = new Usuario();
@@ -182,19 +182,18 @@ public class TestesManeger {
     }
     @Test
     public void t05_Deletar_Arquivo(){
-        long id=3;
+        long id=(long)3;
     Projetos projetos;
    projetos= em.find(Projetos.class, id);
     Arquivos arq =em.find(Arquivos.class, projetos.getArquivos().get(0).getId());
-            
     em.remove(arq);
-    assertNull(projetos.getArquivos().get(0));
+    assertNull(arq.getId());
     
     }
     
     @Test
     public void t06_Deletar_Usuario(){
-    long id=4;
+    long id=(long)4;
     Usuario user=em.find(Usuario.class, id);
     em.remove(user);
         assertNull(user.getId());
@@ -202,28 +201,25 @@ public class TestesManeger {
     }
     @Test
     public void t07_Update_Usuario(){
-        long id=3;
+        long id=(long)3;
     Usuario user=em.find(Usuario.class, id);
     user.setSenha("alohomora");
     user.setEmail("email@email.com");
         em.merge(user);
-        em.clear();
-         user=em.find(Usuario.class, id);
+        
         assertEquals("alohomora",user.getSenha());
         assertEquals("email@email.com",user.getEmail());
     
     }
     @Test
     public void t08_Update_Situacao(){
-        long id=2;
+        long id=(long)2;
    Projetos projetos= em.find(Projetos.class, id);
    projetos.setSituacao(Situacao.CONCLUIDO);
    projetos.setNecessidade(Necessidade.NENHUMA);
    projetos.setMotivacaoNecessidade("");
    em.merge(projetos);
-   em.clear();
-   projetos=null;
-   projetos=em.find(Projetos.class, id);
+   
         assertEquals(projetos.getSituacao(), Situacao.CONCLUIDO);
         assertEquals(projetos.getNecessidade(),Necessidade.NENHUMA);
         assertEquals(projetos.getMotivacaoNecessidade(),"");

@@ -104,15 +104,15 @@ and open the template in the editor.
      <tb_menssagem Discriminator_MSG="P" menssagem="ooooh oh oh ,POSEIDON, é melhor que dumbledore" id_remetente="4" Data_MSG="2006-8-20 10:10:15"/>
     <tb_menssagem Discriminator_MSG="P" menssagem="Grifnoria Grifnoria Grifnoria!!!" id_remetente="1" Data_MSG="2006-8-20 10:40:00"/>
     
-<!--    <tb_menssagem Discriminator_MSG="U" menssagem="iae hermione" id_remetente="1" Data_MSG="2003-10-20 22:15:15"/>-->
+<!--    <tb_mensagem Discriminator_MSG="U" menssagem="iae hermione" id_remetente="1" Data_MSG="2003-10-20 22:15:15"/>-->
     <tb_menssagem Discriminator_MSG="U" menssagem="oi harry!!" id_remetente="2"  Data_MSG="2003-10-20 22:18:15"/><!--
-    <tb_menssagem Discriminator_MSG="U" menssagem="Onde estão so materiais" id_remetente="2" Data_MSG="2003-10-20 22:21:15"/>
-    <tb_menssagem Discriminator_MSG="U" menssagem="na caldeira" id_remetente="1" Data_MSG="2003-10-20 22:21:40"/>
+    <tb_mensagem Discriminator_MSG="U" menssagem="Onde estão so materiais" id_remetente="2" Data_MSG="2003-10-20 22:21:15"/>
+    <tb_mensagem Discriminator_MSG="U" menssagem="na caldeira" id_remetente="1" Data_MSG="2003-10-20 22:21:40"/>
     
 -->    
-<!--    <tb_menssagem Discriminator_MSG="U" menssagem="Como vai ron?" id_remetente="2" Data_MSG="2003-8-20 22:0:00"/>
-    <tb_menssagem Discriminator_MSG="U" menssagem="ta levioza" id_remetente="3" Data_MSG="2003-8-20 22:10:15"/>
-    <tb_menssagem Discriminator_MSG="U" menssagem="LEVIOSSAAA" id_remetente="2" Data_MSG="2003-8-20 22:10:50"/>-->
+<!--    <tb_mensagem Discriminator_MSG="U" menssagem="Como vai ron?" id_remetente="2" Data_MSG="2003-8-20 22:0:00"/>
+    <tb_mensagem Discriminator_MSG="U" menssagem="ta levioza" id_remetente="3" Data_MSG="2003-8-20 22:10:15"/>
+    <tb_mensagem Discriminator_MSG="U" menssagem="LEVIOSSAAA" id_remetente="2" Data_MSG="2003-8-20 22:10:50"/>-->
     
    
     
