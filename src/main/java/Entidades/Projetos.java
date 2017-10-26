@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,6 +30,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name ="tb_projetos")
+@NamedQuery(name="Projetos.todos", query="SELECT p FROM Projetos p")
 public class Projetos implements Serializable {
 
     private static final long serialVersionUID = 1L;
