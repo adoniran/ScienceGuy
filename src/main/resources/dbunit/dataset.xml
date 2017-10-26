@@ -35,9 +35,14 @@ and open the template in the editor.
                 senha="zeus" logadouro="Rua dos centauros" numero="4" bairro="Camp half-blod" complemento="casa" 
                 cidade="macao" estado="AC/DC" CEP="56600-030"/>
     
+    <tb_usuario Discriminator_user="A" login="adoniran" nome="adoniran" email="adonirandamasio@gmail.com" 
+                senha="ragnarok" logadouro="Rua dos bobos" numero="0" bairro="neverland" complemento="casa" 
+                cidade="fantasia" estado="AC/DC" CEP="56600-030"/>
     
-    <tb_admins Usuario_ID="4" senha_confirmacao="202020"/>
-    <tb_admins Usuario_ID="5" senha_confirmacao="900025"/>
+    
+    <tb_admins Usuario_ID="5" senha_confirmacao="202020"/>
+    <tb_admins Usuario_ID="6" senha_confirmacao="900025"/>
+    <tb_admins Usuario_ID="7" senha_confirmacao="303030"/>
     <!--    telefones-->
     <tb_telefone id="1" numero_telefone="(81)3426-0011"/>
     <tb_telefone id="6" numero_telefone="(81)3478-4561"/>
@@ -50,12 +55,16 @@ and open the template in the editor.
     <tb_telefone id="4" numero_telefone="(11)3247-0011"/>
     <tb_telefone id="5" numero_telefone="(11)3486-7411"/>
     <tb_telefone id="5" numero_telefone="(11)98624-9883"/>
+    <tb_telefone id="5" numero_telefone="(81)97999-9991"/>
+    
     <!--conta-->
     <tb_conta numero_conta="00054002185850" agencia_conta="4322"  tipo_conta="poupança" id_usuario="1"/>
     <tb_conta numero_conta="00022165799658" agencia_conta="4311"  tipo_conta="poupança" id_usuario="2"/>
     <tb_conta numero_conta="00000148994808" agencia_conta="5192"  tipo_conta="conta corrente" id_usuario="3"/>
     <tb_conta numero_conta="00000148999658" agencia_conta="5282"  tipo_conta="conta corrente" id_usuario="4"/>
     <tb_conta numero_conta="00000784599658" agencia_conta="4371"  tipo_conta="poupança" id_usuario="5"/>
+    <tb_conta numero_conta="00000784599658" agencia_conta="4371"  tipo_conta="poupança" id_usuario="6"/>
+    <tb_conta numero_conta="00000784599658" agencia_conta="5192"  tipo_conta="poupança" id_usuario="7"/>
     <!--projetos-->
     <tb_projetos  nome_project="Aparato magico n15" descricao_project="desenvolver nova tecnologia para
     lançar feitiços mais rapidos ,dando um novo formato as varinhas" necessidade="INTELECTUAL" situacao="DESENVOLVENDO" area_projeto="HARDWARE"
@@ -65,12 +74,60 @@ and open the template in the editor.
     troca e transferencia de dracmas de ouro com velocidade e seguranca" necessidade="HUMANO" situacao="PARADO" area_projeto="TI"
                   motivacao_necessidade="Precisamos de mais pessoas para auxiliar no desenvolvimento" />
     
-    <tb_arquivos id_projeto="2" tipo="codigo" nome="codigo do projeto" URL="https://github.com/adoniran/ScienceGuy"/>
+    <tb_projetos  nome_project="ScienceGuy" descricao_project="desenvolver plataforma colaborativa"
+                  necessidade="FINANCEIRO" situacao="DESENVOLVENDO" area_projeto="TI"
+                  motivacao_necessidade="Precisamos de recursos para alocação de servidores" />
+    
+    <tb_arquivos id_projeto="3" tipo="codigo" nome="codigo do projeto" URL="https://github.com/adoniran/ScienceGuy"/>
     
     <tb_usuarios_projetos id_projeto="1" id_usuario="1"/>
     <tb_usuarios_projetos id_projeto="1" id_usuario="2"/>
     <tb_usuarios_projetos id_projeto="1" id_usuario="3"/>
     <tb_usuarios_projetos id_projeto="2" id_usuario="6"/>
     <tb_usuarios_projetos id_projeto="2" id_usuario="4"/>
+    <tb_usuarios_projetos id_projeto="3" id_usuario="7"/>
     
+    <!--log admin-->
+    <tb_log Evento_Type="Information" Desc_operacao="Scheduler Terminated, service ending." Data_op="2017-10-20 22:10:15"/>
+    <tb_log Evento_Type="Information" Desc_operacao="Scheduler Terminated, service ending." Data_op="2017-10-20 18:9:15"/>
+    <tb_log Evento_Type="Information" Desc_operacao="service ending." Data_op="2017-10-8 10:4:20"/>
+    <tb_log Evento_Type="Information" Desc_operacao="Changing code" Data_op="2017-7-6 21:10:15"/>
+    
+    <tb_admins_tb_log tb_admins_Usuario_ID="5" log_id="1"/>
+    <tb_admins_tb_log tb_admins_Usuario_ID="5" log_id="2"/>
+    <tb_admins_tb_log tb_admins_Usuario_ID="6" log_id="3"/>
+    <tb_admins_tb_log tb_admins_Usuario_ID="6" log_id="4"/>
+    
+    
+    <!--mensagem-->
+    
+     <tb_menssagem Discriminator_MSG="P" menssagem="ooooh oh oh ,POSEIDON, é melhor que dumbledore" id_remetente="4" Data_MSG="2006-8-20 10:10:15"/>
+    <tb_menssagem Discriminator_MSG="P" menssagem="Grifnoria Grifnoria Grifnoria!!!" id_remetente="1" Data_MSG="2006-8-20 10:40:00"/>
+    
+<!--    <tb_menssagem Discriminator_MSG="U" menssagem="iae hermione" id_remetente="1" Data_MSG="2003-10-20 22:15:15"/>-->
+    <tb_menssagem Discriminator_MSG="U" menssagem="oi harry!!" id_remetente="2"  Data_MSG="2003-10-20 22:18:15"/><!--
+    <tb_menssagem Discriminator_MSG="U" menssagem="Onde estão so materiais" id_remetente="2" Data_MSG="2003-10-20 22:21:15"/>
+    <tb_menssagem Discriminator_MSG="U" menssagem="na caldeira" id_remetente="1" Data_MSG="2003-10-20 22:21:40"/>
+    
+-->    
+<!--    <tb_menssagem Discriminator_MSG="U" menssagem="Como vai ron?" id_remetente="2" Data_MSG="2003-8-20 22:0:00"/>
+    <tb_menssagem Discriminator_MSG="U" menssagem="ta levioza" id_remetente="3" Data_MSG="2003-8-20 22:10:15"/>
+    <tb_menssagem Discriminator_MSG="U" menssagem="LEVIOSSAAA" id_remetente="2" Data_MSG="2003-8-20 22:10:50"/>-->
+    
+   
+    
+ <tb_Msg_User MSG_ID="3" id_destinatario="1"/>
+<!--  <tb_Msg_User MSG_ID="4" id_destinatario="1"/>
+    <tb_Msg_User MSG_ID="5" id_destinatario="1"/>
+    <tb_Msg_User MSG_ID="6" id_destinatario="2"/>
+ 
+    --> 
+<!--    <tb_Msg_User MSG_ID="4" id_destinatario="3"/>
+    <tb_Msg_User MSG_ID="5" id_destinatario="2"/>
+    <tb_Msg_User MSG_ID="6" id_destinatario="3"/>
+    -->
+    
+    
+    <tb_Msg_proj titulo="#chupa harry" votos="0" MSG_ID="1" ID_projeto="1"/>
+    <tb_Msg_proj titulo="Grifnoria" votos="0" MSG_ID="2" ID_projeto="2"/>
 </dataset>

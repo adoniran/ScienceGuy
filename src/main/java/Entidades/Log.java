@@ -28,11 +28,14 @@ public class Log implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @Column(name = "Evento_Type")
+    private String categoria;
+    
     @Column(name = "Desc_operacao")
     private String operacao;
     
     @Column(name = "Data_op")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataDeOp;
     
 
@@ -59,6 +62,15 @@ public class Log implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
 
     @Override
     public int hashCode() {

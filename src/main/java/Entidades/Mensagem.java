@@ -8,6 +8,7 @@ package Entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +28,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 /**
  *
  * @author adoniran
@@ -43,14 +45,17 @@ public abstract class Mensagem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name="mensagem")
-    private String Mensagem;
+    @Column(name="menssagem")
+    private String Menssagem;
     
     
     @OneToOne(optional=false,cascade=CascadeType.ALL)
     @JoinColumn(name="id_remetente",referencedColumnName = "ID")
     private Usuario remetente;
     
+    @Column(name = "Data_MSG")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dataMsg;
 
     public Long getId() {
         return id;
@@ -60,12 +65,12 @@ public abstract class Mensagem implements Serializable {
         this.id = id;
     }
 
-    public String getMensagem() {
-        return Mensagem;
+    public String getMenssagem() {
+        return Menssagem;
     }
 
-    public void setMensagem(String Mensagem) {
-        this.Mensagem = Mensagem;
+    public void setMenssagem(String Menssagem) {
+        this.Menssagem = Menssagem;
     }
 
     public Usuario getRemetente() {
@@ -74,6 +79,14 @@ public abstract class Mensagem implements Serializable {
 
     public void setRemetente(Usuario remetente) {
         this.remetente = remetente;
+    }
+
+    public Date getDataMsg() {
+        return dataMsg;
+    }
+
+    public void setDataMsg(Date dataMsg) {
+        this.dataMsg = dataMsg;
     }
     
 

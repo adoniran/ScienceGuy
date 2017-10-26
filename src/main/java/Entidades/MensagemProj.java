@@ -9,6 +9,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -27,7 +30,11 @@ public class MensagemProj extends Mensagem implements Serializable {
    
    @Column (name="votos")
    private Long votos;
-
+   
+   @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_projeto", referencedColumnName = "ID")
+   private Projetos projetoDestino;
+   
     public String getTitulo() {
         return titulo;
     }
@@ -43,6 +50,15 @@ public class MensagemProj extends Mensagem implements Serializable {
     public void setVotos(Long votos) {
         this.votos = votos;
     }
+
+    public Projetos getProjetoDestino() {
+        return projetoDestino;
+    }
+
+    public void setProjetoDestino(Projetos projetoDestino) {
+        this.projetoDestino = projetoDestino;
+    }
+    
    
     @Override
     public String toString() {
