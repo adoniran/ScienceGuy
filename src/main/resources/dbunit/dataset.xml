@@ -70,7 +70,7 @@ and open the template in the editor.
     lançar feitiços mais rapidos ,dando um novo formato as varinhas" necessidade="INTELECTUAL" situacao="DESENVOLVENDO" area_projeto="HARDWARE"
                   motivacao_necessidade="ideias com o nome de materiais metalicos condutores para a producao" />
     
-    <tb_projetos  nome_project="Criptocoin  Dracoin" descricao_project="desenvolver nova tecnologia para
+    <tb_projetos  nome_project="Dracoin" descricao_project="desenvolver nova tecnologia para
     troca e transferencia de dracmas de ouro com velocidade e seguranca" necessidade="HUMANO" situacao="PARADO" area_projeto="TI"
                   motivacao_necessidade="Precisamos de mais pessoas para auxiliar no desenvolvimento" />
     

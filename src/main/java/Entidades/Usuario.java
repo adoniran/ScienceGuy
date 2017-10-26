@@ -42,7 +42,7 @@ import javax.persistence.Table;
 @NamedQueries(
 {
     @NamedQuery(name="Usuarios.todos", query="SELECT u FROM Usuario u "),
-    @NamedQuery(name="Usuarios.DDDTel", query="SELECT u FROM Usuario u WHERE u.telefones LIKE  :tel")
+    @NamedQuery(name="Usuarios.DDDTel", query="SELECT u FROM Usuario u WHERE u.telefones LIKE :tel")
 })
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name ="Discriminator_user",discriminatorType= DiscriminatorType.STRING,length =1)

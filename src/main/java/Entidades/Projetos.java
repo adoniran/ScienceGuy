@@ -20,6 +20,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,6 +33,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name ="tb_projetos")
 @NamedQuery(name="Projetos.todos", query="SELECT p FROM Projetos p")
+@NamedNativeQueries(
+        {
+            @NamedNativeQuery(
+                    name = "PROJETO.PorNome",
+                    query = "SELECT id, nome_project, motivacao_necessidade, necessidade, situacao, area_projeto FROM tb_projetos WHERE nome_project = ?1",
+                    resultClass = Projetos.class
+            )
+        }
+)
 public class Projetos implements Serializable {
 
     private static final long serialVersionUID = 1L;
