@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -27,7 +28,7 @@ public class Log implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+    @Evento
     @Column(name = "Evento_Type")
     private String categoria;
     
@@ -38,7 +39,10 @@ public class Log implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataDeOp;
     
-
+@PrePersist
+    public void setDataCriacao() {
+        this.setDataDeOp(new Date());
+}
     public String getOperacao() {
         return operacao;
     }

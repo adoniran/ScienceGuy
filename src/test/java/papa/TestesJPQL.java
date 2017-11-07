@@ -157,8 +157,9 @@ public class TestesJPQL {
     Query query = em.createQuery("DELETE Mensagem AS m WHERE m.id = ?1");
      query.setParameter(1, id);
      query.executeUpdate();
-     
-     
+     Usuario usuario =em.find(Usuario.class, id);
+        assertNull(usuario.getId());
+    
     }
     @Test
     public void t10_nativeQuery(){
