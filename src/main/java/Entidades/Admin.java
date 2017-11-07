@@ -17,6 +17,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -32,7 +33,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @DiscriminatorValue(value = "A")
 @PrimaryKeyJoinColumn(name = "Usuario_ID", referencedColumnName = "ID")
 public class Admin extends Usuario implements Serializable {
-
+    @Valid
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Log> log;
     

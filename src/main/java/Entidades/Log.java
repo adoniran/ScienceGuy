@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -29,12 +31,13 @@ public class Log implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Evento
+    @NotBlank
     @Column(name = "Evento_Type")
     private String categoria;
-    
+    @NotBlank
     @Column(name = "Desc_operacao")
     private String operacao;
-    
+    @NotNull
     @Column(name = "Data_op")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataDeOp;

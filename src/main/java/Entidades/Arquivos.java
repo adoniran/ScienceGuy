@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -29,12 +31,14 @@ public class Arquivos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Size(max=10)
     @Column(name="tipo")
     private String tipo;
-    
+    @Size(max=50)
+    @NotBlank
     @Column(name="nome")
     private String nome;
-    
+    @NotBlank
     @Column(name="URL")
     private String URL;
     
