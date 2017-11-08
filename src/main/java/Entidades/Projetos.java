@@ -25,6 +25,9 @@ import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -49,8 +52,10 @@ public class Projetos implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank
     @Column(name="nome_project")
     private String nome;
+    @NotBlank
     @Column(name="descricao_project")
     private String descricao;    
     @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
@@ -59,14 +64,14 @@ public class Projetos implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn(name = "id_usuario")})
     private List<Usuario> participantes;
-    
+    @Size(max=256)
     @Column(name="motivacao_necessidade")
     private String MotivacaoNecessidade;
-    
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name="necessidade")
     private Necessidade necessidade;
-    
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name="situacao")
     private Situacao situacao;

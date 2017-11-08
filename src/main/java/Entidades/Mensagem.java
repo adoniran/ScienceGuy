@@ -27,8 +27,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 /**
  *
  * @author adoniran
@@ -44,11 +47,11 @@ public abstract class Mensagem implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+    @NotBlank
     @Column(name="menssagem")
     private String Menssagem;
     
-    
+    @NotNull
     @OneToOne(optional=false,cascade=CascadeType.ALL)
     @JoinColumn(name="id_remetente",referencedColumnName = "ID")
     private Usuario remetente;
@@ -56,6 +59,11 @@ public abstract class Mensagem implements Serializable {
     @Column(name = "Data_MSG")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataMsg;
+    
+    @PrePersist
+    public void setDataCriacao() {
+        this.setDataMsg(new Date());
+}
 
     public Long getId() {
         return id;

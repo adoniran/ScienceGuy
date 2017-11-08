@@ -32,6 +32,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -40,12 +45,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_usuario")
 @NamedQueries(
-{
-    @NamedQuery(name="Usuarios.todos", query="SELECT u FROM Usuario u "),
-    @NamedQuery(name="Usuarios.DDDTel", query="SELECT u FROM Usuario u WHERE u.telefones LIKE :tel")
-})
+        {
+            @NamedQuery(name = "Usuarios.todos", query = "SELECT u FROM Usuario u "),
+            @NamedQuery(name = "Usuarios.DDDTel", query = "SELECT u FROM Usuario u WHERE u.telefones LIKE :tel")
+        })
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name ="Discriminator_user",discriminatorType= DiscriminatorType.STRING,length =1)
+@DiscriminatorColumn(name = "Discriminator_user", discriminatorType = DiscriminatorType.STRING, length = 1)
 @DiscriminatorValue(value = "U")
 public class Usuario implements Serializable {
 
@@ -54,28 +59,35 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    
+    @NotBlank
+    @Size(max = 60, message = "Não é permitido que o login ultrapasse 60 caracteres")
     @Column(name = "login")
     private String login;
+     @NotBlank
+    @Size(max = 30)
+    @Pattern(regexp = "\\p{Upper}{1}\\p{Lower}+", message = "Primeira letra deve ser maiuscula seguida de letras menusculas exemplo:Pedro") 
     @Column(name = "nome")
     private String nome;
-    
+    @NotNull
+    @Email
     @Column(name = "email")
     private String email;
-    
+     @NotBlank
+    @Size(min = 6, max = 21,message="A senha deve conter no minimo {min} caracteres e no maximo {max}")
+    @Pattern(regexp = "((?=.*\\p{Digit})(?=.*\\p{Lower})(?=.*\\p{Upper})",message="A senha deve conter ao menos uma letra menuscula, uma letra maiuscula e um numero")//ATENÇÃO
     @Column(name = "senha")
     private String senha;
-    
+    @Size(max = 3, message = "Não é permitido possuir mais de 3 telefones")
     @ElementCollection
     @CollectionTable(name = "tb_telefone",
             joinColumns = @JoinColumn(name = "id"))
     @Column(name = "numero_telefone")
     protected Collection<String> telefones;
-    
-    @ManyToMany(mappedBy = "participantes",cascade=CascadeType.ALL)
+
+    @ManyToMany(mappedBy = "participantes", cascade = CascadeType.ALL)
     private List<Projetos> proj;
-    
-    @OneToOne(mappedBy = "donoConta",cascade=CascadeType.ALL,orphanRemoval = true)
+
+    @OneToOne(mappedBy = "donoConta", cascade = CascadeType.ALL, orphanRemoval = true)
     private Conta conta;
     @Embedded
     private Endereco endereco;
@@ -88,8 +100,6 @@ public class Usuario implements Serializable {
         this.conta = conta;
         conta.setDonoConta(this);
     }
-
-    
 
     public Long getId() {
         return id;
@@ -106,6 +116,7 @@ public class Usuario implements Serializable {
     public void setLogin(String login) {
         this.login = login;
     }
+
     public Collection<String> getTelefones() {
         return telefones;
     }
@@ -115,7 +126,7 @@ public class Usuario implements Serializable {
             telefones = new HashSet<>();
         }
         telefones.add(telefone);
-}
+    }
 
     public String getNome() {
         return nome;
@@ -145,14 +156,13 @@ public class Usuario implements Serializable {
         return proj;
     }
 
-    public void addProjeto(Projetos proj)
-    {
-         if (this.proj == null) {
+    public void addProjeto(Projetos proj) {
+        if (this.proj == null) {
             this.proj = new ArrayList<>();
         }
 
         this.proj.add(proj);
-        
+
     }
 
     public Endereco getEndereco() {
@@ -163,7 +173,6 @@ public class Usuario implements Serializable {
         this.endereco = endereco;
     }
 
- 
     @Override
     public int hashCode() {
         int hash = 0;
@@ -188,7 +197,5 @@ public class Usuario implements Serializable {
         }
         return true;
     }
-
-   
 
 }

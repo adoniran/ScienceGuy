@@ -164,8 +164,8 @@ public class TestesJPQL {
     @Test
     public void t10_nativeQuery(){
     
-    Query query = em.createNativeQuery("SELECT id, nome_project, motivacao_necessidade, necessidade, situacao, area_projeto FROM tb_projetos WHERE nome_project ='Dracoin'", Projetos.class);
-//    query.setParameter(1,"Dracoin");
+    Query query = em.createNativeQuery("SELECT id, nome_project, motivacao_necessidade, necessidade, situacao, area_projeto FROM tb_projetos WHERE nome_project like ?", Projetos.class);
+  query.setParameter(1,"Dracoin");
      List<Projetos> projetos = query.getResultList();
      assertEquals(1, projetos.size());
      

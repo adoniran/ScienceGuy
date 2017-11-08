@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -29,14 +31,20 @@ public class Conta implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    @Size(min=6 , max=12)
+    @NotBlank
     @Column(name="numero_conta")
     private String numero;
     
-    
+    @Size.List ({
+    @Size(min=4, message="O campo deve conter no minimo {min} caracteres"),
+    @Size(max=6, message="O campo não deve conter no maximo {max} caracteres")
+})
+    @NotBlank
     @Column(name="agencia_conta")
     private String agencia;
-    
+    //fazer validador
+    @NotBlank
     @Column(name="tipo_conta")
     private String tipo;
     
