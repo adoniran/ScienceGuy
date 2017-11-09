@@ -45,6 +45,7 @@ public class Conta implements Serializable {
     private String agencia;
     //fazer validador
     @NotBlank
+    @ValidaTipoConta
     @Column(name="tipo_conta")
     private String tipo;
     

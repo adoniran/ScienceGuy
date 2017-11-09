@@ -21,6 +21,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -38,10 +39,11 @@ public class Admin extends Usuario implements Serializable {
     private List<Log> log;
     
     @NotBlank
-    @Size(max = 50)
+    @Size(min=4 ,max = 12,message = "A senha não deve conter menos que{min}e nem mais que{max}")
+    @Pattern(regexp = "((?=.*\\w).{4,12})", message = "A senha não deve conter caracteres")//ATENÇÃO
     @Column(name = "senha_confirmacao")
     private String confirmacao;
-
+    
     public List<Log> getLogs() {
         return log;
     }

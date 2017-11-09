@@ -32,6 +32,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -63,18 +64,18 @@ public class Usuario implements Serializable {
     @Size(max = 60, message = "Não é permitido que o login ultrapasse 60 caracteres")
     @Column(name = "login")
     private String login;
-     @NotBlank
+    @NotBlank
     @Size(max = 30)
-    @Pattern(regexp = "\\p{Upper}{1}\\p{Lower}+", message = "Primeira letra deve ser maiuscula seguida de letras menusculas exemplo:Pedro") 
+    @Pattern(regexp = "\\p{Upper}{1}\\p{Lower}+", message = "Primeira letra deve ser maiuscula seguida de letras menusculas exemplo:Pedro")
     @Column(name = "nome")
     private String nome;
     @NotNull
     @Email
     @Column(name = "email")
     private String email;
-     @NotBlank
-    @Size(min = 6, max = 21,message="A senha deve conter no minimo {min} caracteres e no maximo {max}")
-    @Pattern(regexp = "((?=.*\\p{Digit})(?=.*\\p{Lower})(?=.*\\p{Upper})",message="A senha deve conter ao menos uma letra menuscula, uma letra maiuscula e um numero")//ATENÇÃO
+    @NotBlank
+    @Size(min = 6, max = 21, message = "A senha deve conter no minimo {min} caracteres e no maximo {max}")
+    @Pattern(regexp = "((?=.*\\p{Digit})(?=.*\\p{Lower})(?=.*\\p{Upper})(?=.*\\p{Punct}).{6,20})", message = "A senha deve conter ao menos uma letra menuscula, uma letra maiuscula e um numero")//ATENÇÃO
     @Column(name = "senha")
     private String senha;
     @Size(max = 3, message = "Não é permitido possuir mais de 3 telefones")
@@ -86,10 +87,11 @@ public class Usuario implements Serializable {
 
     @ManyToMany(mappedBy = "participantes", cascade = CascadeType.ALL)
     private List<Projetos> proj;
-
+    @Valid
     @OneToOne(mappedBy = "donoConta", cascade = CascadeType.ALL, orphanRemoval = true)
     private Conta conta;
     @Embedded
+    @Valid
     private Endereco endereco;
 
     public Conta getConta() {

@@ -20,15 +20,15 @@ and open the template in the editor.
                 cidade="london" estado="AM" CEP="56600-030"/>
     
     <tb_usuario Discriminator_user="U" login="RonX66" nome="Ron Weasley" email="Wesaley.ron@gmail.com" 
-                senha="grifnoria" logadouro="AV john Ceeena" numero="4" bairro="smallvile" complemento="casa" 
+                senha="Grifnoria.00" logadouro="AV john Ceeena" numero="4" bairro="smallvile" complemento="casa" 
                 cidade="london" estado="AC" CEP="53300-030"/>
     
     <tb_usuario Discriminator_user="U" login="percy" nome="Percy Jackson" email="Percyr@gmail.com" 
-                senha="tsuname" logadouro="AV maui" numero="4" bairro="gothan" complemento="casa" 
+                senha="Tsuname.69" logadouro="AV maui" numero="4" bairro="gothan" complemento="casa" 
                 cidade="athenas" estado="MG" CEP="53620-030"/>
     <!--administradores-->
     <tb_usuario Discriminator_user="A" login="BlackCat" nome="Minerva Mcgonagall" email="mcgonagall@gmail.com" 
-                senha="blackcat71" logadouro="AV black bird" numero="71" bairro="blair" complemento="ap 106" 
+                senha="Blackcat71*" logadouro="AV black bird" numero="71" bairro="blair" complemento="ap 106" 
                 cidade="macao" estado="PE" CEP="53300-900"/>
     
     <tb_usuario Discriminator_user="A" login="QuironZ" nome="Quiron" email="demigod@gmail.com" 
@@ -58,13 +58,13 @@ and open the template in the editor.
     <tb_telefone id="5" numero_telefone="(81)97999-9991"/>
     
     <!--conta-->
-    <tb_conta numero_conta="002185850" agencia_conta="4322"  tipo_conta="poupança" id_usuario="1"/>
-    <tb_conta numero_conta="165799658" agencia_conta="4311"  tipo_conta="poupança" id_usuario="2"/>
-    <tb_conta numero_conta="148994808" agencia_conta="5192"  tipo_conta="conta corrente" id_usuario="3"/>
-    <tb_conta numero_conta="148999658" agencia_conta="5282"  tipo_conta="conta corrente" id_usuario="4"/>
-    <tb_conta numero_conta="784599658" agencia_conta="4371"  tipo_conta="poupança" id_usuario="5"/>
-    <tb_conta numero_conta="000748558" agencia_conta="4371"  tipo_conta="poupança" id_usuario="6"/>
-    <tb_conta numero_conta="000459858" agencia_conta="5192"  tipo_conta="poupança" id_usuario="7"/>
+    <tb_conta numero_conta="002185850" agencia_conta="4322"  tipo_conta="CONTA SALARIO" id_usuario="1"/>
+    <tb_conta numero_conta="165799658" agencia_conta="4311"  tipo_conta="POUPANÇA" id_usuario="2"/>
+    <tb_conta numero_conta="148994808" agencia_conta="5192"  tipo_conta="CONTA SALARIO" id_usuario="3"/>
+    <tb_conta numero_conta="148999658" agencia_conta="5282"  tipo_conta="CONTA CORRENTE" id_usuario="4"/>
+    <tb_conta numero_conta="784599658" agencia_conta="4371"  tipo_conta="POUPANÇA" id_usuario="5"/>
+    <tb_conta numero_conta="000748558" agencia_conta="4371"  tipo_conta="CONTA CORRENTE" id_usuario="6"/>
+    <tb_conta numero_conta="000459858" agencia_conta="5192"  tipo_conta="POUPANÇA" id_usuario="7"/>
     <!--projetos-->
     <tb_projetos  nome_project="Aparato magico n15" descricao_project="desenvolver nova tecnologia para
     lançar feitiços mais rapidos ,dando um novo formato as varinhas" necessidade="INTELECTUAL" situacao="DESENVOLVENDO" area_projeto="HARDWARE"

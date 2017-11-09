@@ -25,7 +25,9 @@ import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -53,6 +55,8 @@ public class Projetos implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank
+    @Size(max=30, message="Apenas {max} são permitidos")
+    @Pattern(regexp = "\\p{Upper}{1}\\p{Lower}+", message = "Primeira letra Do nome do Seu projeto Deve ser maiuscula")
     @Column(name="nome_project")
     private String nome;
     @NotBlank

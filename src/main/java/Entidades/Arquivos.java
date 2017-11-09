@@ -39,6 +39,7 @@ public class Arquivos implements Serializable {
     @Column(name="nome")
     private String nome;
     @NotBlank
+    @Size(max=120)
     @Column(name="URL")
     private String URL;
     
